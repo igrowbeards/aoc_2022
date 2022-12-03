@@ -18,21 +18,21 @@ defmodule Day003Test do
       ["h", "c", "s", "F", "M", "M", "f", "F", "F", "h", "F", "p"]
     ]
 
-    assert Day003.common_items(input) == ["p"]
+    assert Day003.common_item(input) == "p"
   end
 
   test "parse and find common items" do
     input = "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL"
-    assert Day003.common_items(input) == ["L"]
+    assert Day003.common_item(input) == "L"
 
     input = "PmmdzqPrVvPwwTWBwg"
-    assert Day003.common_items(input) == ["P"]
+    assert Day003.common_item(input) == "P"
 
     input = "ttgJtRGJQctTZtZT"
-    assert Day003.common_items(input) == ["t"]
+    assert Day003.common_item(input) == "t"
 
     input = "CrZsJsPPZsGzwwsLwLmpwMDw"
-    assert Day003.common_items(input) == ["s"]
+    assert Day003.common_item(input) == "s"
   end
 
   test "priorities" do
@@ -44,5 +44,14 @@ defmodule Day003Test do
     assert Day003.priority("s") == 19
 
     assert Day003.priority("vJrwpWtwJgWrhcsFMMfFFhFp") == 16
+  end
+
+  # part 2
+  test 'find badges' do
+    input = ~w/vJrwpWtwJgWrhcsFMMfFFhFp jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL PmmdzqPrVvPwwTWBwg/
+    assert Day003.find_badges(input) == "r"
+
+    input = ~w/wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn ttgJtRGJQctTZtZT CrZsJsPPZsGzwwsLwLmpwMDw/
+    assert Day003.find_badges(input) == "Z"
   end
 end
