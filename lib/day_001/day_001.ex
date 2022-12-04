@@ -8,7 +8,7 @@ defmodule Day001 do
     |> parse_input()
     |> highest_calories()
   end
-  
+
   def run_part_2() do
     read_input()
     |> parse_input()

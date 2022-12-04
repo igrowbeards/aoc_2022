@@ -2,9 +2,9 @@ defmodule Day003 do
   @lower ~w/a b c d e f g h i j k l m n o p q r s t u v w x y z/
   @upper ~w/A B C D E F G H I J K L M N O P Q R S T U V W X Y Z/
 
-  @priorities @lower ++ @upper
-    |> Enum.with_index()
-    |> Enum.into(%{}, fn {k, v} -> {k, v + 1} end)
+  @priorities (@lower ++ @upper)
+              |> Enum.with_index()
+              |> Enum.into(%{}, fn {k, v} -> {k, v + 1} end)
 
   def run_p1 do
     "lib/day_003/day_003_input.txt"
@@ -23,9 +23,10 @@ defmodule Day003 do
   end
 
   def find_badges([_, _, _] = items) do
-    [a, b, c] = items
-    |> Enum.map(&String.codepoints/1)
-    |> Enum.map(&MapSet.new/1)
+    [a, b, c] =
+      items
+      |> Enum.map(&String.codepoints/1)
+      |> Enum.map(&MapSet.new/1)
 
     a
     |> MapSet.intersection(b)
@@ -39,7 +40,7 @@ defmodule Day003 do
     |> halve_list()
   end
 
-  def common_item(str) when is_binary str do
+  def common_item(str) when is_binary(str) do
     str
     |> parse_items_string()
     |> common_item()
@@ -57,9 +58,10 @@ defmodule Day003 do
   def priority(<<_str::size(8)>> = a), do: Map.get(@priorities, a)
 
   def priority(items_str) do
-    item = items_str
-    |> common_item()
-  
+    item =
+      items_str
+      |> common_item()
+
     Map.get(@priorities, item)
   end
 

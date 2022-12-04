@@ -67,11 +67,13 @@ defmodule Day002P2 do
   def performance_score(:lose), do: 0
 
   def match_score(match) do
-    perf_score = match
+    perf_score =
+      match
       |> compare_match_shapes()
       |> performance_score()
 
-    shape_score = match
+    shape_score =
+      match
       |> elem(1)
       |> shape_score()
 

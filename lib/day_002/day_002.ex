@@ -27,7 +27,7 @@ defmodule Day002 do
   def translate("Y"), do: :paper
   def translate("Z"), do: :scissors
 
-  def translate(other) do 
+  def translate(other) do
     other
     |> String.upcase()
     |> translate()
@@ -63,11 +63,13 @@ defmodule Day002 do
   def performance_score(:lose), do: 0
 
   def match_score(match) do
-    perf_score = match
+    perf_score =
+      match
       |> compare_match_shapes()
       |> performance_score()
 
-    shape_score = match
+    shape_score =
+      match
       |> elem(1)
       |> shape_score()
 

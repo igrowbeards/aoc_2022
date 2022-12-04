@@ -58,10 +58,10 @@ defmodule Day002Test do
     """
 
     assert Day002.parse_matches(input) == [
-      {:rock, :paper},
-      {:paper, :rock},
-      {:scissors, :scissors}
-    ]
+             {:rock, :paper},
+             {:paper, :rock},
+             {:scissors, :scissors}
+           ]
   end
 
   test "score matches" do

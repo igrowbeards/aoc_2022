@@ -1,7 +1,7 @@
 defmodule Day001Test do
   use ExUnit.Case
 
-  @raw  """
+  @raw """
   1000
   2000
   3000

@@ -35,9 +35,11 @@ defmodule Day004 do
   end
 
   defp to_range(input) do
-    [start, finish] = input
+    [start, finish] =
+      input
       |> String.split("-")
       |> Enum.map(&String.to_integer/1)
+
     Range.new(start, finish)
   end
 end
