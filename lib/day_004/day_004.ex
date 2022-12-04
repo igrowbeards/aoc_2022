@@ -48,6 +48,6 @@ defmodule Day004 do
     input
     |> String.split("-")
     |> Enum.map(&String.to_integer/1)
-    |> (fn [a, b] ->  Range.new(a, b) end).()
+    |> (fn [a, b] -> Range.new(a, b) end).()
   end
 end
