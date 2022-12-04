@@ -10,6 +10,16 @@ defmodule Day002 do
     Enum.reduce(matches, 0, fn match, acc -> acc + match_score(match) end)
   end
 
+  def rps_graph do
+    g = :digraph.new()
+    rock = :digraph.vertex(g, :rock)
+    paper = :digraph.vertex(g, :paper)
+    scissors = :digraph.vertex(g, :scissors)
+    :digraph.add_edge(g, paper, rock, :beats)
+    :digraph.add_edge(g, rock, paper, :beats)
+    g
+  end
+
   def translate("A"), do: :rock
   def translate("B"), do: :paper
   def translate("C"), do: :scissors
